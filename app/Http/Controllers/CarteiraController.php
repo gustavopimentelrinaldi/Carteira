@@ -25,7 +25,8 @@ class CarteiraController extends Controller
      */
     public function create()
     {
-        //
+        $carteira = Carteira::all();
+        return view('create', compact('carteira'));
     }
 
     /**
@@ -36,7 +37,20 @@ class CarteiraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Carteira::create([
+            'ativo' => $request->ativo,
+            'cotacao' => $request->cotacao,
+            'quantidade' => $request->quantidade,
+            'valor' => $request->valor,
+            'precoLucro' => $request->precoLucro,
+            'returnOnEquity' => $request->returnOnEquity,
+            'valorDividendoAno' => $request->valorDividendoAno,
+            'dividendYield' => $request->dividendYield,
+            'dividendYieldEsperado' => $request->dividendYieldEsperado,
+            'dividendYieldAlcancado' => $request->dividendYieldAlcancado,
+        ]);
+
+        return "Criado com sucesso!";
     }
 
     /**
@@ -47,7 +61,8 @@ class CarteiraController extends Controller
      */
     public function show($id)
     {
-        //
+        $carteira = Carteira::find($id);
+        return view('show', compact('carteira'));
     }
 
     /**

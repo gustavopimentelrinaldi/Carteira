@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuarioController;
 |
 */
 
-Route::resource('/', CarteiraController::class);
+Route::resource('/carteira', CarteiraController::class);
 Route::resource('/lista-de-usuarios', UsuarioController::class);
 
 

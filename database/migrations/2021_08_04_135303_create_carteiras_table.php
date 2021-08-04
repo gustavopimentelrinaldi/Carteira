@@ -15,8 +15,6 @@ class CreateCarteirasTable extends Migration
     {
         Schema::create('carteira', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
             $table->string('ativo');
             $table->double('cotacao', 10, 2);
             $table->integer('quantidade');
@@ -27,7 +25,6 @@ class CreateCarteirasTable extends Migration
             $table->double('dividendYield', 10, 2);
             $table->double('dividendYieldEsperado', 10, 2);
             $table->boolean('dividendYieldAlcancado');
-            $table->double('valorTotal', 10, 2);
             $table->timestamps();
         });
     }

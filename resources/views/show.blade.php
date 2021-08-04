@@ -21,7 +21,7 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">
                     <span data-feather="home"></span>
-                    Dashboard
+                    Visualizar registro
                   </a>
                 </li>
               </ul>
@@ -34,7 +34,7 @@
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{url('lista-de-usuarios')}}">
+                  <a class="nav-link" href="/lista-de-usuarios">
                     <span data-feather="file-text"></span>
                     Lista
                   </a>
@@ -48,15 +48,16 @@
               <h1 class="h2">Dashboard</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                  <a href="{{url('carteira/create')}}">
-                    <button type="button" class="btn btn-sm btn-primary">Novo</button>
-                  </a>
+                  <button type="button" class="btn btn-sm btn-primary">Novo</button>
                   <button type="button" class="btn btn-sm btn-warning text-light">Editar</button>
                 </div>
               </div>
             </div>
-      
+            
             <div class="table-responsive">
+                @php
+                    $carteira->find($carteira->id);
+                @endphp
               <table class="table table-striped table-sm" id="tabela">
                 <thead>
                   <tr>
@@ -73,24 +74,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($carteira as $carteiras)
                     <tr>
-                        <th scope="row">{{$carteiras->ativo}}</th>
-                        <td>R$ {{$carteiras->cotacao}}0</td>
-                        <td>{{$carteiras->quantidade}}</td>
-                        <td>R$ {{$carteiras->valor}}</td>
-                        <td>{{$carteiras->precoLucro}}</td>
-                        <td>{{$carteiras->returnOnEquity}}%</td>
-                        <td>R$ {{$carteiras->valorDividendoAno}}</td>
-                        <td>{{$carteiras->dividendYield}}%</td>
-                        <td>{{$carteiras->dividendYieldEsperado}}%</td>
-                        @if ($carteiras->dividendYieldAlcancado === 0)
+                        <th scope="row">{{$carteira->ativo}}</th>
+                        <td>R$ {{$carteira->cotacao}}0</td>
+                        <td>{{$carteira->quantidade}}</td>
+                        <td>R$ {{$carteira->valor}}</td>
+                        <td>{{$carteira->precoLucro}}</td>
+                        <td>{{$carteira->returnOnEquity}}%</td>
+                        <td>R$ {{$carteira->valorDividendoAno}}</td>
+                        <td>{{$carteira->dividendYield}}%</td>
+                        <td>{{$carteira->dividendYieldEsperado}}%</td>
+                        @if ($carteira->dividendYieldAlcancado === 0)
                             <td>Não</td>
-                            @elseif ($carteiras->dividendYieldAlcancado === 1)
+                            @elseif ($carteira->dividendYieldAlcancado === 1)
                             <td>Sim</td>
                         @endif
                     </tr>
-                @endforeach
                 </tbody>
               </table>
             </div>

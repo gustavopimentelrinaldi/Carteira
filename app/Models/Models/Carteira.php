@@ -10,8 +10,17 @@ class Carteira extends Model
     use HasFactory;
     protected $table='carteira';
 
-    public function relUsers(){
-        return $this->hasOne('App\Models\User', 'id', 'id_user');
-    }
+    protected $fillable = [
+        'ativo',
+        'cotacao',
+        'quantidade',
+        'valor',
+        'precoLucro',
+        'returnOnEquity',
+        'valorDividendoAno',
+        'dividendYield',
+        'dividendYieldEsperado',
+        'dividendYieldAlcancado'
+    ];
     
 }

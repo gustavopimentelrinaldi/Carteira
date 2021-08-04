@@ -17,7 +17,7 @@ class UsuarioController extends Controller
     {
         $carteira = Carteira::all();
         $usuario = Usuario::all();
-        return view('user.index', compact('carteira', 'usuario'));
+        return view('usuario.index', compact('carteira', 'usuario'));
     }
 
     /**
