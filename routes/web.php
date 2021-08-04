@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarteiraController;
+use App\Http\Controllers\UsuarioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +17,6 @@ use App\Http\Controllers\CarteiraController;
 */
 
 Route::resource('/', CarteiraController::class);
+Route::resource('/lista-de-usuarios', UsuarioController::class);
+
+
