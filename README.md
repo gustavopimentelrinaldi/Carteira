@@ -2,7 +2,7 @@
 
 
 
-```git clone *git@github.com:gustavopimentelrinaldi/Carteira.git*```
+```git clone git@github.com:gustavopimentelrinaldi/Carteira.git```
 
 Switch to *master* branch
 
@@ -23,6 +23,6 @@ config Providers/AppServiceProvider.php
 
 ```*npm i*``` -- Install dependencies
 
-```*php artisan migrate*``` -- run tables structuries on your database.
+```php artisan migrate``` -- run tables structuries on your database.
 
-```*php artisan serve*``` -- run your localhost
+```php artisan serve``` -- run your localhost
