@@ -72,15 +72,15 @@
                 <tbody>
                   @foreach ($carteira as $carteiras)
                     <tr>
-                        <th scope="row">{{$carteiras->ativo}}</th>
-                        <td>R$ {{$carteiras->cotacao}}0</td>
-                        <td>{{$carteiras->quantidade}}</td>
-                        <td>R$ {{$carteiras->valor}}</td>
-                        <td>{{$carteiras->precoLucro}}</td>
-                        <td>{{$carteiras->returnOnEquity}}%</td>
-                        <td>R$ {{$carteiras->valorDividendoAno}}</td>
-                        <td>{{$carteiras->dividendYield}}%</td>
-                        <td>{{$carteiras->dividendYieldEsperado}}%</td>
+                        <th scope="row">{{$carteiras->ativo ?? ''}}</th>
+                        <td>R$ {{$carteiras->cotacao ?? ''}}0</td>
+                        <td>{{$carteiras->quantidade ?? ''}}</td>
+                        <td>R$ {{$carteiras->valor ?? ''}}</td>
+                        <td>{{$carteiras->precoLucro ?? ''}}</td>
+                        <td>{{$carteiras->returnOnEquity ?? ''}}%</td>
+                        <td>R$ {{$carteiras->valorDividendoAno ?? ''}}</td>
+                        <td>{{$carteiras->dividendYield ?? ''}}%</td>
+                        <td>{{$carteiras->dividendYieldEsperado ?? ''}}%</td>
                         @if ($carteiras->dividendYieldAlcancado === 0)
                             <td>Não</td>
                             @elseif ($carteiras->dividendYieldAlcancado === 1)
@@ -92,34 +92,14 @@
                           </a>
                         </td>
                         <td>
-                          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal">Excluir</button>
+                          <a href="{{url("carteira/$carteiras->id")}}"" class="js-del">
+                            <button type="button" class="btn btn-outline-danger">Excluir</button>
+                          </a>
                         </td>
                     </tr>
                 @endforeach
                 </tbody>
               </table>
-
-              <!-- modal -->
-              <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer excluir?</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      <a href="{{url("carteira/$carteiras->id")}}" class="js-del">
-                        <button type="button" class="btn btn-primary">Confirmar</button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
           </main>
         </div>

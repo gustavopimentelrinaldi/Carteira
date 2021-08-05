@@ -62,15 +62,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">{{$carteira->ativo}}</th>
-                        <td>R$ {{$carteira->cotacao}}0</td>
-                        <td>{{$carteira->quantidade}}</td>
-                        <td>R$ {{$carteira->valor}}</td>
-                        <td>{{$carteira->precoLucro}}</td>
-                        <td>{{$carteira->returnOnEquity}}%</td>
-                        <td>R$ {{$carteira->valorDividendoAno}}</td>
-                        <td>{{$carteira->dividendYield}}%</td>
-                        <td>{{$carteira->dividendYieldEsperado}}%</td>
+                        <th scope="row">{{$carteira->ativo ?? ''}}</th>
+                        <td>R$ {{$carteira->cotacao ?? ''}}0</td>
+                        <td>{{$carteira->quantidade ?? ''}}</td>
+                        <td>R$ {{$carteira->valor ?? ''}}</td>
+                        <td>{{$carteira->precoLucro ?? ''}}</td>
+                        <td>{{$carteira->returnOnEquity ?? ''}}%</td>
+                        <td>R$ {{$carteira->valorDividendoAno ?? ''}}</td>
+                        <td>{{$carteira->dividendYield ?? ''}}%</td>
+                        <td>{{$carteira->dividendYieldEsperado ?? ''}}%</td>
                         @if ($carteira->dividendYieldAlcancado === 0)
                             <td>Não</td>
                             @elseif ($carteira->dividendYieldAlcancado === 1)
