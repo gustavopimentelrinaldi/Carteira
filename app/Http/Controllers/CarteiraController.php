@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CarteiraRequest;
 use Illuminate\Http\Request;
 use App\Models\Models\Carteira;
 
@@ -32,10 +33,10 @@ class CarteiraController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarteiraRequest $request)
     {
         Carteira::create([
             'ativo' => $request->ativo,
@@ -50,7 +51,7 @@ class CarteiraController extends Controller
             'dividendYieldAlcancado' => $request->dividendYieldAlcancado,
         ]);
 
-        return "Criado com sucesso!";
+        return  redirect('/carteira');
     }
 
     /**
