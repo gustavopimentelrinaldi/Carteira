@@ -36,7 +36,6 @@
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                   <button type="button" class="btn btn-sm btn-primary">Novo</button>
-                  <button type="button" class="btn btn-sm btn-warning text-light">Editar</button>
                 </div>
               </div>
             </div>
@@ -62,15 +61,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">{{$carteira->ativo ?? ''}}</th>
-                        <td>R$ {{$carteira->cotacao ?? ''}}0</td>
-                        <td>{{$carteira->quantidade ?? ''}}</td>
-                        <td>R$ {{$carteira->valor ?? ''}}</td>
-                        <td>{{$carteira->precoLucro ?? ''}}</td>
-                        <td>{{$carteira->returnOnEquity ?? ''}}%</td>
-                        <td>R$ {{$carteira->valorDividendoAno ?? ''}}</td>
-                        <td>{{$carteira->dividendYield ?? ''}}%</td>
-                        <td>{{$carteira->dividendYieldEsperado ?? ''}}%</td>
+                        <th scope="row">{{$carteira->ativo}}</th>
+                        <td>R$ {{$carteira->cotacao}}0</td>
+                        <td>{{$carteira->quantidade}}</td>
+                        <td>R$ {{$carteira->valor}}</td>
+                        <td>{{$carteira->precoLucro}}</td>
+                        <td>{{$carteira->returnOnEquity}}%</td>
+                        <td>R$ {{$carteira->valorDividendoAno}}</td>
+                        <td>{{$carteira->dividendYield}}%</td>
+                        <td>{{$carteira->dividendYieldEsperado}}%</td>
                         @if ($carteira->dividendYieldAlcancado === 0)
                             <td>Não</td>
                             @elseif ($carteira->dividendYieldAlcancado === 1)

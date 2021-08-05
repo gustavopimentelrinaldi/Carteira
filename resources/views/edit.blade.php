@@ -46,7 +46,6 @@
                   <a href="{{url('carteira/create')}}">
                     <button type="button" class="btn btn-sm btn-primary">Novo</button>
                   </a>
-                  <button type="button" class="btn btn-sm btn-warning text-light">Editar</button>
                 </div>
               </div>
             </div>
