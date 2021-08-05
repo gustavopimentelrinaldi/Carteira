@@ -46,12 +46,12 @@
                   <a href="{{url('carteira/create')}}">
                     <button type="button" class="btn btn-sm btn-primary">Novo</button>
                   </a>
-                  <button type="button" class="btn btn-sm btn-warning text-light">Editar</button>
                 </div>
               </div>
             </div>
       
             <div class="table-responsive">
+              @csrf
               <table class="table table-striped table-sm" id="tabela">
                 <thead>
                   <tr>
@@ -65,6 +65,8 @@
                     <th scope="col">Dividend Yield</th>
                     <th scope="col">DY esperado</th>
                     <th scope="col">DY alcançado</th>
+                    <th scope="col">Ações</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -84,10 +86,40 @@
                             @elseif ($carteiras->dividendYieldAlcancado === 1)
                             <td>Sim</td>
                         @endif
+                        <td>
+                          <a href="{{url("carteira/$carteiras->id/edit")}}"">
+                            <button type="button" class="btn btn-outline-info">Editar</button>
+                          </a>
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal">Excluir</button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
               </table>
+
+              <!-- modal -->
+              <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Tem certeza que quer excluir?</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                      <a href="{{url("carteira/$carteiras->id")}}" class="js-del">
+                        <button type="button" class="btn btn-primary">Confirmar</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </main>
         </div>

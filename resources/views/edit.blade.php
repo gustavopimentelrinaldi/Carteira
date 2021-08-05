@@ -16,7 +16,7 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{{url('carteira/create')}}">
                     <span data-feather="home"></span>
-                    Novo ativo
+                    @if(isset($carteira)) Editar @else Novo ativo @endif
                   </a>
                 </li>
               </ul>
@@ -40,12 +40,13 @@
       
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Novo ativo</h1>
+              <h1 class="h2">@if(isset($carteira)) Editar @else Novo ativo @endif</h1>
               <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
                   <a href="{{url('carteira/create')}}">
                     <button type="button" class="btn btn-sm btn-primary">Novo</button>
                   </a>
+                  <button type="button" class="btn btn-sm btn-warning text-light">Editar</button>
                 </div>
               </div>
             </div>
@@ -59,41 +60,46 @@
               </div>
               @endforeach
             @endif
-          
+
+            @if(isset($carteira))
+              <form method="POST" action="{{url("carteira/$carteira->id")}}">
+              @method('PUT')
+              @else
               <form method="POST" action="{{url('carteira')}}">
+              @endif
                 @csrf
                 <div class="mb-3">     
-                  <input class="form-control" type="text" name="ativo" placeholder="Papel Ex: vale3"/>
+                  <input class="form-control" type="text" name="ativo" placeholder="Papel Ex: vale3" value="{{$carteira->ativo ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="cotacao" placeholder="Valor da cota R$"/>
+                  <input class="form-control" type="text" name="cotacao" placeholder="Valor da cota R$" value="{{$carteira->cotacao ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="quantidade" placeholder="Quantidade de cotas"/>
+                  <input class="form-control" type="text" name="quantidade" placeholder="Quantidade de cotas" value="{{$carteira->quantidade ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="valor" placeholder="valor possuído R$"/>
+                  <input class="form-control" type="text" name="valor" placeholder="valor possuído R$" value="{{$carteira->valor ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="precoLucro" placeholder="Preço sobre lucro"/>
+                  <input class="form-control" type="text" name="precoLucro" placeholder="Preço sobre lucro" value="{{$carteira->precoLucro ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="returnOnEquity" placeholder="ROE %"/>
+                  <input class="form-control" type="text" name="returnOnEquity" placeholder="ROE %" value="{{$carteira->returnOnEquity ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="valorDividendoAno" placeholder="Valor pago de dividendo por ano R$"/>
+                  <input class="form-control" type="text" name="valorDividendoAno" placeholder="Valor pago de dividendo por ano R$" value="{{$carteira->valorDividendoAno ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="dividendYield" placeholder="Porcentagem de Dividend Yield %"/>
+                  <input class="form-control" type="text" name="dividendYield" placeholder="Porcentagem de Dividend Yield %" value="{{$carteira->dividendYield ?? ''}}"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="dividendYieldEsperado" placeholder="Quanto você quer de dividend yield? R$"/>
+                  <input class="form-control" type="text" name="dividendYieldEsperado" placeholder="Quanto você quer de dividend yield? R$" value="{{$carteira->dividendYieldEsperado ?? ''}}"/>
                 </div>
-               <select class="mb-3 form-select" name="dividendYieldAlcancado" placeholder="Alcançou o DY esperado?">
+               <select class="mb-3 form-select" name="dividendYieldAlcancado" placeholder="Alcançou o DY esperado?" value="{{$carteira->dividendYieldAlcancado ?? ''}}">
                   <option value="0">Não</option>
                   <option value="1">Sim</option>
                 </select>
-                <button type="submit" class="btn btn-primary mb-3 col-12">Cadastrar</button>
+                <button type="submit" class="btn btn-primary mb-3 col-12">@if(isset($carteira)) Editar @else Cadastrar @endif</button>
             </form>
           </main>
         </div>

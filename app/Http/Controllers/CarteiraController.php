@@ -48,7 +48,7 @@ class CarteiraController extends Controller
             'valorDividendoAno' => $request->valorDividendoAno,
             'dividendYield' => $request->dividendYield,
             'dividendYieldEsperado' => $request->dividendYieldEsperado,
-            'dividendYieldAlcancado' => $request->dividendYieldAlcancado,
+            'dividendYieldAlcancado' => $request->dividendYieldAlcancado
         ]);
 
         return  redirect('/carteira');
@@ -74,7 +74,8 @@ class CarteiraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carteira = Carteira::find($id);
+        return view('edit', compact('carteira'));
     }
 
     /**
@@ -84,9 +85,22 @@ class CarteiraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CarteiraRequest $request, $id)
     {
-        //
+        Carteira::where(['id'=>$id])->update([
+            'ativo' => $request->ativo,
+            'cotacao' => $request->cotacao,
+            'quantidade' => $request->quantidade,
+            'valor' => $request->valor,
+            'precoLucro' => $request->precoLucro,
+            'returnOnEquity' => $request->returnOnEquity,
+            'valorDividendoAno' => $request->valorDividendoAno,
+            'dividendYield' => $request->dividendYield,
+            'dividendYieldEsperado' => $request->dividendYieldEsperado,
+            'dividendYieldAlcancado' => $request->dividendYieldAlcancado
+        ]);
+
+        return redirect('/carteira');
     }
 
     /**
@@ -97,6 +111,6 @@ class CarteiraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Carteira::destroy($id);
     }
 }
