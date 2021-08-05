@@ -29,7 +29,7 @@ config Providers/AppServiceProvider.php
 
 
 
-utilities
+# Utilities
 
 updates only a specific migration
 
