@@ -26,3 +26,23 @@ config Providers/AppServiceProvider.php
 ```php artisan migrate``` -- run tables structuries on your database.
 
 ```php artisan serve``` -- run your localhost
+
+
+
+utilities
+
+updates only a specific migration
+
+```php artisan migrate:refresh --path='./database/migrations/2021_08_04_135303_create_carteiras_table.php'```
+
+makes a request file for validations(form)
+
+```php artisan make:request CarteiraRequest```
+
+makes controller with resources
+
+```php artisan make:controller 'name' --resource```
+
+makes a model
+
+```php artisan make:model 'name'```
