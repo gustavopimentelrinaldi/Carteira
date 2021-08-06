@@ -73,7 +73,7 @@
                   @foreach ($carteira as $carteiras)
                     <tr>
                         <th scope="row">{{$carteiras->ativo ?? ''}}</th>
-                        <td>R$ {{$carteiras->cotacao ?? ''}}0</td>
+                        <td>R$ {{$carteiras->cotacao ?? ''}}</td>
                         <td>{{$carteiras->quantidade ?? ''}}</td>
                         <td>R$ {{$carteiras->valor ?? ''}}</td>
                         <td>{{$carteiras->precoLucro ?? ''}}</td>

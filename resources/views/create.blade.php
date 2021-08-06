@@ -1,4 +1,16 @@
 @extends('templates.template')
+@section('script')
+  <script>
+    $("#ativo").inputmask({"mask": "AAAA99"}); 
+    $("#cotacao").inputmask("999.99", { "placeholder": "000.00" });
+    $("#precoLucro").inputmask("99.99", { "placeholder": "00.00" });
+    $("#returnOnEquity").inputmask("99.9", { "placeholder": "00.0" });
+    $("#dividendYield").inputmask("9.9", { "placeholder": "0.0" });
+    $("#dividendYieldEsperado").inputmask("9.9", { "placeholder": "0.0" });
+    
+  </script>
+@endsection
+
 @section('content')
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{{url('carteira')}}">Rinaldi wallet</a>
@@ -63,31 +75,31 @@
               <form method="POST" action="{{url('carteira')}}">
                 @csrf
                 <div class="mb-3">     
-                  <input class="form-control" type="text" name="ativo" placeholder="Papel Ex: vale3"/>
+                  <input class="form-control" type="text" id="ativo" name="ativo" placeholder="Papel Ex: vale3"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="cotacao" placeholder="Valor da cota R$"/>
+                  <input class="form-control" type="text" id="cotacao" name="cotacao" placeholder="Valor da cota R$"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="quantidade" placeholder="Quantidade de cotas"/>
+                  <input class="form-control" type="text" id="quantidade" name="quantidade" placeholder="Quantidade de cotas"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="valor" placeholder="valor possuído R$"/>
+                  <input class="form-control" type="text" id="valor" name="valor" placeholder="valor possuído R$"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="precoLucro" placeholder="Preço sobre lucro"/>
+                  <input class="form-control" type="text" id="precoLucro" name="precoLucro" placeholder="Preço sobre lucro"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="returnOnEquity" placeholder="ROE %"/>
+                  <input class="form-control" type="text" id="returnOnEquity" name="returnOnEquity" placeholder="ROE %"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="valorDividendoAno" placeholder="Valor pago de dividendo por ano R$"/>
+                  <input class="form-control" type="text" id="valorDividendoAno" name="valorDividendoAno" placeholder="Valor pago de dividendo por ano R$"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="dividendYield" placeholder="Porcentagem de Dividend Yield %"/>
+                  <input class="form-control" type="text" id="dividendYield" name="dividendYield" placeholder="Porcentagem de Dividend Yield %"/>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="text" name="dividendYieldEsperado" placeholder="Quanto você quer de dividend yield? R$"/>
+                  <input class="form-control" type="text" id="dividendYieldEsperado" name="dividendYieldEsperado" placeholder="Quanto você quer de dividend yield? R$"/>
                 </div>
                <select class="mb-3 form-select" name="dividendYieldAlcancado" placeholder="Alcançou o DY esperado?">
                   <option value="0">Não</option>

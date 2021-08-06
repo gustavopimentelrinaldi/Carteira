@@ -10,8 +10,14 @@
 </head>
 <body>
     @yield('content')
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/scriptDelete.js') }}" type="text/javascript"></script>
 
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/scriptDelete.js') }}"></script>
+    <script src="{{ asset('js/jquery.inputmask.js') }}"></script>
+    <script src="{{ asset('js/inputmask.js') }}"></script>
+    <script src="{{ asset('js/inputmask.binding.js') }}"></script>
+    
+    @yield('script') 
 </body>
 </html>
