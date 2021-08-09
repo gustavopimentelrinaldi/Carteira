@@ -17,6 +17,7 @@
     <script src="{{ asset('js/jquery.inputmask.js') }}"></script>
     <script src="{{ asset('js/inputmask.js') }}"></script>
     <script src="{{ asset('js/inputmask.binding.js') }}"></script>
+    <script src="{{ asset('js/search.js') }}"></script>
     
     @yield('script') 
 </body>

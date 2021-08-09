@@ -5,7 +5,7 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-dark w-100" type="text" id="search" placeholder="Search" aria-label="Search">
       </header>
       
       <div class="container-fluid">
@@ -71,7 +71,7 @@
                 </thead>
                 <tbody>
                   @foreach ($carteira as $carteiras)
-                    <tr>
+                    <tr class="linhas">
                         <th scope="row">{{$carteiras->ativo ?? ''}}</th>
                         <td>R$ {{$carteiras->cotacao ?? ''}}</td>
                         <td>{{$carteiras->quantidade ?? ''}}</td>
